@@ -33,7 +33,7 @@ serve(async (req: Request) => {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'VQC Playground <onboarding@yourdomain.com>', // Replace with your verified domain
+        from: 'VQC Playground <onboarding@resend.dev>', // Replace with the verified domain
         to: [email],
         subject: 'Welcome to VQC Playground Newsletter! 🎉',
         html: `
@@ -52,7 +52,7 @@ serve(async (req: Request) => {
             <body>
               <div class="container">
                 <div class="header">
-                  <h1>🎉 Welcome to VQC Playground!</h1>
+                  <h1>🚀 You're Aboard!</h1>
                 </div>
                 <div class="content">
                   <p>Hi there,</p>
@@ -63,7 +63,7 @@ serve(async (req: Request) => {
                     <li>📚 Latest quantum computing research papers and breakthroughs</li>
                     <li>🔬 Updates on variational quantum algorithms</li>
                     <li>💡 Tutorials and insights on quantum machine learning</li>
-                    <li>🚀 New features and improvements to the VQC Playground</li>
+                    <li>✨ New features and improvements to the VQC Playground</li>
                   </ul>
 
                   <p>Get started by exploring our interactive playground:</p>
