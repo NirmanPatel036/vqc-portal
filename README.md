@@ -319,11 +319,6 @@ npm run lint    # Run ESLint
 # Frontend API endpoint
 NEXT_PUBLIC_API_URL=http://localhost:8000
 
-# EmailJS Configuration (optional - for newsletter subscription)
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
-
 # Gemini API Configuration (optional - for Qisper AI chatbot)
 GEMINI_API_KEY=your_gemini_api_key
 ```
