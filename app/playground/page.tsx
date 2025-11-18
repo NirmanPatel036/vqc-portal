@@ -4,7 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import QuantumPlot from "@/components/QuantumPlot"
 
@@ -23,10 +23,8 @@ interface DecisionMesh {
   z: number[][]
 }
 
-export default function Playground() {
-  const searchParams = useSearchParams()
-  const datasetParam = searchParams.get('dataset')
-  const [selectedDataset, setSelectedDataset] = useState(datasetParam || "iris")
+function PlaygroundContent({ initialDataset }: { initialDataset: string }) {
+  const [selectedDataset, setSelectedDataset] = useState(initialDataset)
   const [status, setStatus] = useState("Idle. Select a dataset and train.")
   const [trainingData, setTrainingData] = useState<ScatterPoint[]>([])
   const [decisionMesh, setDecisionMesh] = useState<DecisionMesh | null>(null)
@@ -39,10 +37,10 @@ export default function Playground() {
 
   // Set dataset from URL parameter on mount
   useEffect(() => {
-    if (datasetParam && ['iris', 'moons', 'spirals'].includes(datasetParam)) {
-      setSelectedDataset(datasetParam)
+    if (initialDataset && ['iris', 'moons', 'spirals'].includes(initialDataset)) {
+      setSelectedDataset(initialDataset)
     }
-  }, [datasetParam])
+  }, [initialDataset])
 
   const handleTrain = async () => {
     setIsTraining(true)
@@ -345,5 +343,21 @@ export default function Playground() {
         </div>
       </section>
     </div>
+  )
+}
+
+// Wrapper component to handle search params
+function DatasetParamHandler() {
+  const searchParams = useSearchParams()
+  const datasetParam = searchParams.get('dataset')
+  return <PlaygroundContent initialDataset={datasetParam || "iris"} />
+}
+
+// Main export with Suspense boundary
+export default function Playground() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-black text-white flex items-center justify-center">Loading...</div>}>
+      <DatasetParamHandler />
+    </Suspense>
   )
 }
