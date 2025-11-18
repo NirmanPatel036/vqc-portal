@@ -358,6 +358,3 @@ For questions, issues, or collaborations, please open an issue or reach out thro
 🌐 [Website](https://your-deployment-url.vercel.app) • 📖 [Docs](https://your-deployment-url.vercel.app/docs) • 🚀 [Playground](https://your-deployment-url.vercel.app/playground)
 
 </div>
-
-```
-```
