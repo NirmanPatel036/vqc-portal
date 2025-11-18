@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "lib": ["deno.window"],
+    "types": ["https://deno.land/x/supabase_functions@v1.3.0/mod.ts"]
+  }
+}
