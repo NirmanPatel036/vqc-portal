@@ -68,7 +68,7 @@ export default function Datasets() {
             <h1 className="text-6xl font-bold">
               <span className="text-white">Available</span> <span className="text-yellow-400">Datasets</span>
             </h1>
-            <p className="text-xl text-gray-300">Choose your dataset and complexity level. Time take by a model to converge depends on the dataset and its complexity level.</p>
+            <p className="text-xl text-gray-300">Choose your dataset and complexity level. Time taken by a model to converge depends on the dataset and its complexity level.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
